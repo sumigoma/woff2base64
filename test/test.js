@@ -57,6 +57,18 @@ describe('woff2base64', function () {
       expect(weight).to.equal('900');
     });
 
+    it('parses the font-weight', function () {
+      const fo = new Woff2Base64Class({}, options);
+      let weight = fo.getFontWeight('Roboto-Bold.woff2', {weight: 'bold'});
+      expect(weight).to.equal('bold');
+
+      weight = fo.getFontWeight('Roboto-Bold.woff2', {weight: '900'});
+      expect(weight).to.equal('900');
+
+      weight = fo.getFontWeight('Roboto-Regular.woff2', {weight: ''});
+      expect(weight).to.equal('normal');
+    });
+
     it('gets the font-style from filename', function () {
       const fo = new Woff2Base64Class({}, options);
 
@@ -68,6 +80,15 @@ describe('woff2base64', function () {
 
       style = fo.getFontStyleFromFilename('Roboto-BlackItalic-900.woff2');
       expect(style).to.equal('italic');
+    });
+
+    it('parses the font-style', function () {
+      const fo = new Woff2Base64Class({}, options);
+      let style = fo.getFontStyle('Roboto-BlackItalic-900.woff2', {style: 'italic'});
+      expect(style).to.equal('italic');
+
+      style = fo.getFontStyle('Roboto-Bold.woff2', {style: ''});
+      expect(style).to.equal('normal');
     });
 
     it('converts strings to base64', function () {

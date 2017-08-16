@@ -221,7 +221,7 @@ class Woff2Base64 {
    */
   getFontWeight = (filename, font) => {
     return font.hasOwnProperty('weight') &&
-    this.fontWeights.hasOwnProperty(font.weight) ? font.weight : this.getFontWeightFromFilename(filename);
+    this.fontWeights.includes(font.weight) ? font.weight : this.getFontWeightFromFilename(filename);
 
   };
 
@@ -235,7 +235,7 @@ class Woff2Base64 {
    */
   getFontStyle = (filename, font) => {
     return font.hasOwnProperty('style') &&
-    this.fontStyles.hasOwnProperty(font.style) ? font.style : this.getFontStyleFromFilename(filename);
+    this.fontStyles.includes(font.style) ? font.style : this.getFontStyleFromFilename(filename);
   };
 
   /**
