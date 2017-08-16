@@ -62,7 +62,7 @@ describe('woff2base64', function () {
       let weight = fo.getFontWeight('Roboto-Bold.woff2', {weight: 'bold'});
       expect(weight).to.equal('bold');
 
-      weight = fo.getFontWeight('Roboto-Bold.woff2', {weight: '900'});
+      weight = fo.getFontWeight('Roboto-BlackItalic-900.woff2', {weight: '900'});
       expect(weight).to.equal('900');
 
       weight = fo.getFontWeight('Roboto-Regular.woff2', {weight: ''});
